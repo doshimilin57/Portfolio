@@ -333,7 +333,7 @@
 /*==Google MAP==*/
 function initialize() {
     var image = 'img/map-marker.png';
-    var myLatlng = new google.maps.LatLng(37.773972, -122.431297);
+    var myLatlng = new google.maps.LatLng(37.715814, -122.473484);
     var mapOptions = {
         zoom: 12,
         scrollwheel: false,
