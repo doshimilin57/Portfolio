@@ -3,20 +3,20 @@
     $(document).ready(function () {
         $(function () {
 
-            $("h1.section-heading").fitText({ minFontSize: '16px', maxFontSize: '62px'})
+            $("h1.section-heading").fitText({ minFontSize: '16px', maxFontSize: '62px' })
 
             /*===Revolution Slider===*/
             var revapi;
             revapi = jQuery('.tp-banner').revolution(
                 {
-                    delay:10000,
-                    startwidth:1170,
-                    startheight:500,
-                    hideThumbs:10,
-                    onHoverStop:"off",
-                    fullWidth:"off",
-                    fullScreen:"on",
-                    navigationType:"none",
+                    delay: 10000,
+                    startwidth: 1170,
+                    startheight: 500,
+                    hideThumbs: 10,
+                    onHoverStop: "off",
+                    fullWidth: "off",
+                    fullScreen: "on",
+                    navigationType: "none",
                     fullScreenOffsetContainer: ""
                 });
 
@@ -146,6 +146,7 @@
 
             }
 
+
             /*===owlCarousel End===*/
 
 
@@ -196,19 +197,19 @@
 
             /*===iso tope blog end===*/
 
-           /*==Draggable Connect==*/
+            /*==Draggable Connect==*/
 
-            $(function() {
-                $( ".social-link-drag" ).draggable({
+            $(function () {
+                $(".social-link-drag").draggable({
                     cursor: "crosshair",
                     revert: "valid",
                     containment: ".connect-section"
                 });
-                $( ".drag-place" ).droppable({
+                $(".drag-place").droppable({
                     activeClass: "active-drag ",
                     hoverClass: "social-drag-hover wow pulse animated",
-                    drop: function( event, ui ) {
-                        $( this ).addClass( "drag-highlight" );
+                    drop: function (event, ui) {
+                        $(this).addClass("drag-highlight");
                         window.open(ui.draggable.attr("href"));
                     }
                 });
@@ -226,25 +227,25 @@
                     $({
                         value: start
                     }).animate({
-                            value: stop
-                        }, {
-                            duration: duration == undefined ? 500 : duration,
-                            easing: ease == undefined ? "swing" : ease,
-                            step: function () {
-                                $this.text(Math.floor(this.value));
+                        value: stop
+                    }, {
+                        duration: duration == undefined ? 500 : duration,
+                        easing: ease == undefined ? "swing" : ease,
+                        step: function () {
+                            $this.text(Math.floor(this.value));
+                            if (commas) {
+                                $this.text($this.text().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+                            }
+                        },
+                        complete: function () {
+                            if (parseInt($this.text()) !== stop) {
+                                $this.text(stop);
                                 if (commas) {
                                     $this.text($this.text().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
                                 }
-                            },
-                            complete: function () {
-                                if (parseInt($this.text()) !== stop) {
-                                    $this.text(stop);
-                                    if (commas) {
-                                        $this.text($this.text().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-                                    }
-                                }
                             }
-                        });
+                        }
+                    });
                 });
             };
 
@@ -284,10 +285,10 @@
                 },
                 itemTemplate:
                     '<li>' +
-                        '<a href="{{image_b}}" title="{{title}}"><img src="{{image_s}}" alt="{{title}}"/></a>' +
-                        '</li>'
+                    '<a href="{{image_b}}" title="{{title}}"><img src="{{image_s}}" alt="{{title}}"/></a>' +
+                    '</li>'
             },
-                function(data) {
+                function (data) {
                     $('.flickr-feed a').magnificPopup({
                         type: 'image',
 
@@ -295,13 +296,13 @@
                             enabled: true
                         },
                         image: {
-                            markup: '<div class="mfp-figure">'+
-                                '<div class="mfp-close"></div>'+
-                                '<div class="mfp-img"></div>'+
-                                '<div class="mfp-bottom-bar">'+
-                                '<div class="mfp-title"></div>'+
-                                '<div class="mfp-counter"></div>'+
-                                '</div>'+
+                            markup: '<div class="mfp-figure">' +
+                                '<div class="mfp-close"></div>' +
+                                '<div class="mfp-img"></div>' +
+                                '<div class="mfp-bottom-bar">' +
+                                '<div class="mfp-title"></div>' +
+                                '<div class="mfp-counter"></div>' +
+                                '</div>' +
                                 '</div>', // Popup HTML markup. `.mfp-img` div will be replaced with img tag, `.mfp-close` by close button
 
                             cursor: 'mfp-zoom-out-cur', // Class that adds zoom cursor, will be added to body. Set to null to disable zoom out cursor.
@@ -333,7 +334,7 @@
 /*==Google MAP==*/
 function initialize() {
     var image = 'img/map-marker.png';
-    var myLatlng = new google.maps.LatLng(37.715814, -122.473484);
+    var myLatlng = new google.maps.LatLng(42.331429, -83.045753);
     var mapOptions = {
         zoom: 12,
         scrollwheel: false,
@@ -383,7 +384,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 var ww = $(window).width();
 
 /*==WOW JS==*/
-if(ww > 480){
+if (ww > 480) {
     wow = new WOW({
         animateClass: 'animated',
         offset: 0
